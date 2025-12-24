@@ -116,6 +116,35 @@ body.login {
   color: #3A5F7D;
   font-size: 16px;
 }
+.top-ribbon {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(250, 249, 246, 0.85); /* creamy translucent */
+  border: 1px solid rgba(111, 174, 217, 0.25);
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.ribbon-link {
+  text-decoration: none;
+  color: #3A5F7D;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(207, 233, 246, 0.9);
+}
+
+.ribbon-link:hover {
+  opacity: 0.9;
+}
 
 .song-of-the-week {
   margin-top: 12px;
