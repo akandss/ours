@@ -1,5 +1,5 @@
 // Password
-const PASSWORD = "secret123";
+const PASSWORD = "onalaska";
 
 // Make login function global
 window.login = function() {
