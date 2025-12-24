@@ -5,9 +5,18 @@
   <title>Us 🩵</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Early redirect to prevent flash -->
+  <script>
+    if (localStorage.getItem("access") !== "granted") {
+      window.location.href = "login.html";
+    }
+  </script>
 </head>
 
 <body>
+    <!-- Wrap all content in a hidden div -->
+  <div id="content" style="display: none;">
   <main class="home">
     <div class="card">
       <h1>Us — 2025 → ∞</h1>
@@ -24,5 +33,12 @@
   <script>
     checkAccess();
   </script>
+    <!-- Show content after access confirmed -->
+  <script>
+    if (localStorage.getItem("access") === "granted") {
+      document.getElementById("content").style.display = "block";
+    }
+  </script>
+    
 </body>
 </html>
