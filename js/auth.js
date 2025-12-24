@@ -1,4 +1,4 @@
-const PASSWORD = "test123";
+const PASSWORD = "test123;
 
 function login() {
   const input = document.getElementById("password").value;
