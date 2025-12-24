@@ -24,7 +24,7 @@
       const error = document.getElementById("error");
 
       if (input === PASSWORD) {
-        localStorage.setItem("access", "granted");
+        sessionStorage.setItem("access", "granted");
         window.location.href = "index.html";
       } else {
         error.innerText = "Not quite 🤍";
@@ -32,7 +32,7 @@
     }
 
     function checkAccess() {
-      if (localStorage.getItem("access") !== "granted") {
+      if (sessionStorage.getItem("access") !== "granted") {
         window.location.href = "login.html";
       }
     }
