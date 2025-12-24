@@ -37,4 +37,18 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+  .login {
+  pointer-events: auto;
+}
+
+.login-card {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.login-card input,
+.login-card button {
+  pointer-events: auto;
+}
 }
