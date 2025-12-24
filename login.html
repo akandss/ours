@@ -11,7 +11,7 @@
     <p>Enter our secret to continue</p>
 
     <input type="password" id="password" placeholder="Our password" />
-    <button type="button" onclick="login()">Enter</button>
+    <button type="button" onclick="handleLogin()">Enter</button>
 
     <p id="error"></p>
   </div>
@@ -40,9 +40,7 @@
       }
     }
 
-    // Attach login function after DOM loads
-    document.getElementById("loginButton").addEventListener("click", handleLogin);
-
+    
     console.log("Login JS loaded");
   </script>
 </body>
