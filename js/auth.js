@@ -4,6 +4,7 @@ const PASSWORD = "secret123";
 // Make login function global
 window.login = function() {
   const input = document.getElementById("password").value;
+  const error = document.getElementById("error");
 
   if (input === PASSWORD) {
     localStorage.setItem("access", "granted");
