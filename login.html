@@ -16,6 +16,34 @@
     <p id="error"></p>
   </div>
 
-  <script src="js/auth.js"></script>
+    <!-- Load JS at the very end -->
+  <script>
+    const PASSWORD = "secret123"; // replace with your password
+
+    // Function to handle login
+    function handleLogin() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (input === PASSWORD) {
+        localStorage.setItem("access", "granted");
+        window.location.href = "index.html";
+      } else {
+        error.innerText = "Not quite 🤍";
+      }
+    }
+
+    // Protect homepage
+    function checkAccess() {
+      if (localStorage.getItem("access") !== "granted") {
+        window.location.href = "login.html";
+      }
+    }
+
+    // Attach login function after DOM loads
+    document.getElementById("loginButton").addEventListener("click", handleLogin);
+
+    console.log("Login JS loaded");
+  </script>
 </body>
 </html>
