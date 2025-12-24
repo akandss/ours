@@ -47,5 +47,25 @@
       document.getElementById("content").style.display = "block";
     }
   </script>
+
+  <script>
+  const ribbon = document.getElementById("topRibbon");
+
+  function updateRibbon() {
+    if (window.scrollY > 40) {
+      ribbon.style.opacity = "0";
+      ribbon.style.transform = "translateX(-50%) translateY(-10px)";
+      ribbon.style.pointerEvents = "none";
+    } else {
+      ribbon.style.opacity = "1";
+      ribbon.style.transform = "translateX(-50%) translateY(0)";
+      ribbon.style.pointerEvents = "auto";
+    }
+  }
+
+  updateRibbon();
+  window.addEventListener("scroll", updateRibbon);
+</script>
+
 </body>
 </html>
