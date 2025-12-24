@@ -1,62 +1,14 @@
+/* ===== BASE STYLES ===== */
+
 body {
+  margin: 0;
   background-color: #CFE9F6;
   font-family: Arial, sans-serif;
-  .login {
-  background-color: #CFE9F6;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.login-card {
-  background: #FAF9F6;
-  padding: 40px;
-  border-radius: 16px;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.login-card input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.login-card button {
-  margin-top: 15px;
-  padding: 12px;
-  width: 100%;
-  background-color: #6FAED9;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-  .login {
-  pointer-events: auto;
-}
-
-.login-card {
-  position: relative;
-  z-index: 10;
-  pointer-events: auto;
-}
-
-.login-card input,
-.login-card button {
-  pointer-events: auto;
-}
-}
-
-/* ===== LOGIN PAGE RESET ===== */
+/* ===== LOGIN PAGE ===== */
 
 body.login {
-  margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -71,7 +23,7 @@ body.login {
   text-align: center;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .login-card input {
@@ -95,4 +47,9 @@ body.login {
 
 .login-card button:hover {
   opacity: 0.9;
+}
+
+# error {
+  color: #d33;
+  margin-top: 10px;
 }
