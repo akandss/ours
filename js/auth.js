@@ -1,6 +1,8 @@
-const PASSWORD = "test123";
+// Password
+const PASSWORD = "secret123";
 
-function login() {
+// Make login function global
+window.login = function() {
   const input = document.getElementById("password").value;
 
   if (input === PASSWORD) {
@@ -9,10 +11,13 @@ function login() {
   } else {
     document.getElementById("error").innerText = "Not quite 🤍";
   }
-}
+};
 
-function checkAccess() {
+// Protect pages
+window.checkAccess = function() {
   if (localStorage.getItem("access") !== "granted") {
     window.location.href = "login.html";
   }
-}
+};
+
+console.log("auth.js loaded");
