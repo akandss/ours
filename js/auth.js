@@ -7,7 +7,7 @@ window.login = function() {
   const error = document.getElementById("error");
 
   if (input === PASSWORD) {
-    localStorage.setItem("access", "granted");
+    sessionStorage.setItem("access", "granted");
     window.location.href = "index.html";
   } else {
     document.getElementById("error").innerText = "Not quite 🤍";
@@ -16,7 +16,7 @@ window.login = function() {
 
 // Protect pages
 window.checkAccess = function() {
-  if (localStorage.getItem("access") !== "granted") {
+  if (sessionStorage.getItem("access") !== "granted") {
     window.location.href = "login.html";
   }
 };
