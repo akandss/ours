@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Us 🩵</title>
-
-  <!-- Mobile friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <!-- Page Content -->
   <main class="home">
     <div class="card">
       <h1>Us — 2025 → ∞</h1>
@@ -22,19 +17,10 @@
     </div>
   </main>
 
-    <script>
-    // Same checkAccess function to protect this page
-    function checkAccess() {
-      if (localStorage.getItem("access") !== "granted") {
-        window.location.href = "login.html";
-      }
-    }
-
-    checkAccess();
-  </script>
-
-  <!-- Auth scripts MUST be at the bottom -->
+  <!-- Load auth.js FIRST -->
   <script src="js/auth.js"></script>
+
+  <!-- Then check access -->
   <script>
     checkAccess();
   </script>
