@@ -11,16 +11,14 @@
     <p>Enter our secret to continue</p>
 
     <input type="password" id="password" placeholder="Our password" />
-    <button type="button" onclick="handleLogin()">Enter</button>
+    <button id="loginButton" type="button">Enter</button>
 
     <p id="error"></p>
   </div>
 
-    <!-- Load JS at the very end -->
   <script>
     const PASSWORD = "secret123"; // replace with your password
 
-    // Function to handle login
     function handleLogin() {
       const input = document.getElementById("password").value;
       const error = document.getElementById("error");
@@ -33,14 +31,19 @@
       }
     }
 
-    // Protect homepage
     function checkAccess() {
       if (localStorage.getItem("access") !== "granted") {
         window.location.href = "login.html";
       }
     }
 
-    
+    // Make functions global
+    window.handleLogin = handleLogin;
+    window.checkAccess = checkAccess;
+
+    // Attach click listener
+    document.getElementById("loginButton").addEventListener("click", handleLogin);
+
     console.log("Login JS loaded");
   </script>
 </body>
