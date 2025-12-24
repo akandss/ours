@@ -22,6 +22,17 @@
     </div>
   </main>
 
+    <script>
+    // Same checkAccess function to protect this page
+    function checkAccess() {
+      if (localStorage.getItem("access") !== "granted") {
+        window.location.href = "login.html";
+      }
+    }
+
+    checkAccess();
+  </script>
+
   <!-- Auth scripts MUST be at the bottom -->
   <script src="js/auth.js"></script>
   <script>
