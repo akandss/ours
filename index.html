@@ -17,28 +17,93 @@
 <body>
     <!-- Wrap all content in a hidden div -->
   <div id="content" style="display: none;">
-  <main class="home">
-    <div class="card">
-      <h1>Us — 2025 → ∞</h1>
-      <p class="subtitle">
-        A place for our memories and everything still to come.
-      </p>
-    </div>
-  </main>
+  
+    <!-- Hero section -->
+    <header class="hero">
+      <img src="images/hero-photo.jpg" alt="Us" class="hero-img">
+      <div class="hero-info">
+        <div class="stats">
+          <p>Memories captured: 150</p>
+        </div>
+        <div class="song-of-the-week">
+          <p><strong>Song of the Week:</strong> “Your Favorite Song”</p>
+        </div>
+      </div>
+    </header>
 
-  <!-- Load auth.js FIRST -->
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="tab-2025">2025</button>
+      <button class="tab-btn" data-tab="tab-future">Future</button>
+    </nav>
+
+    <!-- Tab content -->
+    <section class="tab-content">
+      <!-- 2025 Tab -->
+      <div id="tab-2025" class="tab active">
+        <h2>2025 Memories</h2>
+        <div class="photo-grid">
+          <img src="images/photo1.jpg" alt="Memory 1">
+          <img src="images/photo2.jpg" alt="Memory 2">
+          <img src="images/photo3.jpg" alt="Memory 3">
+        </div>
+        <div class="map-container">
+          <h3>Places We Visited</h3>
+          <div class="map-placeholder">Map goes here</div>
+        </div>
+        <div class="stats-2025">
+          <h3>2025 Stats</h3>
+          <ul>
+            <li>Countries visited: 13</li>
+            <li>Favorite meal: Pasta Night 🍝</li>
+            <li>Most visited city: Paris</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Future Tab -->
+      <div id="tab-future" class="tab">
+        <h2>Future Plans</h2>
+        <div class="future-list">
+          <ul>
+            <li>Visit Japan 🇯🇵</li>
+            <li>Hike the Swiss Alps 🏔️</li>
+            <li>Road trip across the USA 🚗</li>
+          </ul>
+        </div>
+        <div class="map-container">
+          <h3>Places We Want to Go</h3>
+          <div class="map-placeholder">Map goes here</div>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- end #content -->
+
+  <!-- Load auth.js -->
   <script src="js/auth.js"></script>
 
-  <!-- Then check access -->
-  <script>
-    checkAccess();
-  </script>
-    <!-- Show content after access confirmed -->
+  <!-- Show content after access confirmed -->
   <script>
     if (sessionStorage.getItem("access") === "granted") {
       document.getElementById("content").style.display = "block";
     }
+
+    // Tabs functionality
+    const tabs = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(btn => btn.classList.remove("active"));
+        tab.classList.add("active");
+
+        const target = tab.getAttribute("data-tab");
+        tabContents.forEach(tc => {
+          tc.classList.toggle("active", tc.id === target);
+        });
+      });
+    });
   </script>
-    
 </body>
 </html>
