@@ -52,3 +52,47 @@ body {
   pointer-events: auto;
 }
 }
+
+/* ===== LOGIN PAGE RESET ===== */
+
+body.login {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #CFE9F6;
+}
+
+.login-card {
+  background: #FAF9F6;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.login-card button {
+  margin-top: 15px;
+  padding: 12px;
+  width: 100%;
+  background-color: #6FAED9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  opacity: 0.9;
+}
