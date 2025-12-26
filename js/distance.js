@@ -46,7 +46,7 @@ function initMap() {
   const mapEl = document.getElementById("distanceMap");
   if (!mapEl) return;
 
-  map = L.map("distanceMap").setView([20, 0], 2); // world view
+  map = L.map("distanceMap").setView([39.5, -98.35], 4); // world view
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap"
