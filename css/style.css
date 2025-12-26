@@ -530,3 +530,128 @@ body.login {
   }
 }
 
+/* ===== LONG DISTANCE SECTION ===== */
+
+.distance-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 60px auto 0;
+  padding: 0 32px;
+  box-sizing: border-box;
+
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.section-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2F5D7C;
+}
+
+/* left: map card */
+
+.distance-map-card {
+  flex: 1 1 0;
+  background: #FAF9F6;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(111, 174, 217, 0.25);
+}
+
+.leaflet-map {
+  width: 100%;
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.map-caption {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #3A5F7D;
+}
+
+/* right: distance card */
+
+.distance-card {
+  flex: 1 1 0;
+  background: #FAF9F6;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(111, 174, 217, 0.25);
+}
+
+.distance-intro {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  color: #3A5F7D;
+}
+
+.distance-form {
+  margin-top: 4px;
+}
+
+.distance-form .field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.distance-form label {
+  font-size: 12px;
+  color: #6b8296;
+  margin-bottom: 4px;
+}
+
+.distance-form input {
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.16);
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.distance-btn {
+  margin-top: 6px;
+  width: 100%;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: none;
+  background: #6FAED9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.distance-btn:hover {
+  opacity: 0.95;
+}
+
+.distance-result {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: #2F5D7C;
+  font-weight: 500;
+}
+
+/* stack on small screens */
+@media (max-width: 900px) {
+  .distance-section {
+    flex-direction: column;
+    padding: 0 16px;
+  }
+
+  .distance-map-card,
+  .distance-card {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
