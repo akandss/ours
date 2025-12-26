@@ -423,3 +423,76 @@ body.login {
     text-align: center;
   }
 }
+
+/* text under the photo on the homepage */
+.hero-info {
+  max-width: 600px;
+  margin: 24px auto 0;
+  text-align: center;
+  padding: 18px 22px 20px;
+  background: #FAF9F6;
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+  border: 1px solid rgba(111, 174, 217, 0.18);
+}
+
+.hero-tag {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #6b8296;
+}
+
+.hero-title {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2F5D7C;
+}
+
+.hero-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #3A5F7D;
+}
+
+/* ===== FLORAL DECORATION AROUND HERO NOTE ===== */
+
+.floral-card {
+  position: relative;
+  overflow: visible;  /* allows flowers to peek outside */
+}
+
+/* 🌷 Tulip cluster — bottom left */
+.floral-card::before {
+  content: "🌷🌷";
+  position: absolute;
+  bottom: -18px;
+  left: -22px;
+  font-size: 24px;
+  transform: rotate(-8deg);
+  opacity: 0.9;
+}
+
+/* 🌸 Hydrangea cluster — top right */
+.floral-card::after {
+  content: "💠💠";
+  position: absolute;
+  top: -18px;
+  right: -22px;
+  font-size: 24px;
+  transform: rotate(6deg);
+  opacity: 0.9;
+}
+
+/* mobile — soften spacing */
+@media (max-width: 700px) {
+  .floral-card::before,
+  .floral-card::after {
+    font-size: 18px;
+    bottom: -12px;
+    top: -12px;
+  }
+}
