@@ -503,7 +503,7 @@ body.login {
   margin-top: 18px;
   height: 80px;  /* adjust taller/shorter if you like */
   border-radius: 16px;
-  background-image: url("images/flowers/tulip_image.jpg");
+  background-image: url("../images/flowers/tulip_image.jpg");
   background-size: cover;
   background-position: center bottom;
   position: relative;
