@@ -481,10 +481,10 @@ body.login {
 .tulip-strip {
   margin-top: 20px;
   width: 100%;
-  height: 120px;
+  height: 150px;
 
   background-image: url("../images/tulip_image.jpg");
-  background-size: cover;
+  background-size: 115%;
   background-position: center bottom;
 
   position: relative;
@@ -528,3 +528,23 @@ body.login {
   }
 }
 
+
+/* soft fade so the tulips feel layered into the card */
+.tulip-strip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;  /* how far up the fade starts */
+  height: 50px;  /* how tall the fade area is */
+
+  background: linear-gradient(
+    to bottom,
+    #FAF9F6 0%,                       /* card cream color */
+    rgba(250, 249, 246, 0.95) 35%,
+    rgba(250, 249, 246, 0.75) 60%,
+    transparent 100%
+  );
+
+  pointer-events: none; /* don't block hover tooltip */
+}
