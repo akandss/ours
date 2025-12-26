@@ -479,15 +479,23 @@ body.login {
 /* ===== TULIP STRIP BORDER AT BOTTOM OF HERO CARD ===== */
 
 .tulip-strip {
-  margin-top: 18px;
-  height: 110px;  /* show more of the tulips */
+  margin-top: 20px;
+  width: 100%;
+  height: 120px;
+
   background-image: url("../images/tulip_image.jpg");
   background-size: cover;
   background-position: center bottom;
+
   position: relative;
-  overflow: hidden;
-  border-radius: 0;       /* let the parent card handle rounding */
+  display: block;
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  overflow: visible;
 }
+
 
 /* cute hover tooltip */
 .tulip-strip::after {
