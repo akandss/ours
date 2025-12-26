@@ -261,21 +261,25 @@ body.login {
   color: #3A5F7D;
 }
 
-/* ===== ORIGIN SECTION: calendar + counter side by side ===== */
+/* ===== ORIGIN SECTION: calendar left, counter right ===== */
 
 .origin-section {
-  margin: 24px auto 0;
-  max-width: 900px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 40px;              /* adds space from edges */
+  box-sizing: border-box;
+
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-wrap: nowrap;            /* keep side-by-side on desktop */
+  gap: 32px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /* calendar card (left) */
 .origin-card {
-  flex: 1 1 320px;
-  max-width: 380px;
+  flex: 1 1 0;
   background: #FAF9F6;
   border-radius: 22px;
   padding: 18px 18px 16px;
@@ -292,12 +296,12 @@ body.login {
   text-align: center;
 }
 
-/* mini calendar stays roughly same size as before */
+/* mini calendar as before */
 .mini-calendar {
   margin: 0 auto;
   width: 100%;
   max-width: 260px;
-  background: #FFF6D8;   /* soft pastel yellow */
+  background: #FFF6D8;
   border-radius: 18px;
   padding: 10px 12px 12px;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
@@ -367,16 +371,17 @@ body.login {
 
 /* counter card (right) */
 .counter-card {
-  flex: 1 1 260px;
-  max-width: 360px;
+  flex: 1 1 0;
   background: #FAF9F6;
   border-radius: 22px;
-  padding: 18px 18px 16px;
+  padding: 24px 24px 20px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
   border: 1px solid rgba(111, 174, 217, 0.25);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;      /* align text nicely on the left inside card */
 }
 
 .counter-label {
@@ -389,32 +394,34 @@ body.login {
 
 .counter-number {
   margin: 0;
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 800;
   color: #2F5D7C;
 }
 
 .counter-caption {
-  margin: 6px 0 0;
-  font-size: 13px;
+  margin: 8px 0 0;
+  font-size: 14px;
   color: #3A5F7D;
 }
 
 /* stack on small screens */
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .origin-section {
     flex-direction: column;
-    align-items: center;
+    padding: 0 16px;
+    gap: 16px;
   }
 
   .origin-card,
   .counter-card {
+    width: 100%;
     max-width: 420px;
+    margin: 0 auto;
   }
 
   .counter-card {
-    text-align: center;
     align-items: center;
+    text-align: center;
   }
 }
-
