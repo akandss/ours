@@ -465,28 +465,6 @@ body.login {
   overflow: visible;  /* allows flowers to peek outside */
 }
 
-/* 🌷 Tulip cluster — bottom left */
-.floral-card::before {
-  content: "🌷🌷";
-  position: absolute;
-  bottom: -18px;
-  left: -22px;
-  font-size: 24px;
-  transform: rotate(-8deg);
-  opacity: 0.9;
-}
-
-/* 🌸 Hydrangea cluster — top right */
-.floral-card::after {
-  content: "💠💠";
-  position: absolute;
-  top: -18px;
-  right: -22px;
-  font-size: 24px;
-  transform: rotate(6deg);
-  opacity: 0.9;
-}
-
 /* mobile — soften spacing */
 @media (max-width: 700px) {
   .floral-card::before,
@@ -500,16 +478,15 @@ body.login {
 /* ===== TULIP STRIP BORDER AT BOTTOM OF HERO CARD ===== */
 
 .tulip-strip {
-  margin-top: 18px;
-  height: 80px;              /* adjust taller/shorter if you like */
-  border-radius: 16px;
-  border: 2px solid hotpink; /* TEMP: to confirm it's visible */
-  background-color: #ffeef7; /* TEMP: fallback color */
+  margin-top: 16px;
+  height: 90px;                     /* tweak if you want taller/shorter */
+  border-radius: 14px;
   background-image: url("../images/tulip_image.jpg");
   background-size: cover;
   background-position: center bottom;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);  /* subtle depth */
 }
 
 /* cute hover tooltip */
