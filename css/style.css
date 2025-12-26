@@ -540,8 +540,8 @@ body.login {
   box-sizing: border-box;
 
   display: flex;
-  gap: 32px;
-  align-items: flex-start;
+  gap: 40px;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -555,17 +555,17 @@ body.login {
 /* left: map card */
 
 .distance-map-card {
-  flex: 1 1 0;
+  flex: 1.2 1 0;
   background: #FAF9F6;
   border-radius: 22px;
-  padding: 18px 18px 16px;
+  padding: 18px 24px 16px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
   border: 1px solid rgba(111, 174, 217, 0.25);
 }
 
 .leaflet-map {
   width: 100%;
-  height: 320px;
+  height: 340px;
   border-radius: 18px;
   overflow: hidden;
 }
@@ -579,7 +579,7 @@ body.login {
 /* right: distance card */
 
 .distance-card {
-  flex: 1 1 0;
+  flex: 0.9 1 0;
   background: #FAF9F6;
   border-radius: 22px;
   padding: 18px 18px 16px;
