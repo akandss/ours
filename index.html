@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
 
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
   <!-- Early redirect to prevent flash -->
   <script>
     if (sessionStorage.getItem("access") !== "granted") {
@@ -124,7 +129,55 @@
     </p>
   </div>
 </section>
+<!-- Long distance section -->
+<section class="distance-section">
+  <!-- LEFT: interactive map -->
+  <div class="distance-map-card">
+    <h2 class="section-title">our two dots on the map</h2>
 
+    <div id="distanceMap" class="leaflet-map"></div>
+
+    <p class="map-caption" id="mapCaption">
+      enter our locations to drop the pins 💌
+    </p>
+  </div>
+
+  <!-- RIGHT: distance calculator -->
+  <div class="distance-card">
+    <h2 class="section-title">distance between us</h2>
+    <p class="distance-intro">
+      update our locations and see how many miles are between us right now.
+    </p>
+
+    <form id="distanceForm" class="distance-form">
+      <div class="field">
+        <label for="youAddress">your location</label>
+        <input
+          id="youAddress"
+          type="text"
+          placeholder="city, state or address"
+        />
+      </div>
+
+      <div class="field">
+        <label for="themAddress">their location</label>
+        <input
+          id="themAddress"
+          type="text"
+          placeholder="city, state or address"
+        />
+      </div>
+
+      <button type="submit" class="distance-btn">
+        drop pins & calculate miles
+      </button>
+    </form>
+
+    <p class="distance-result" id="distanceResult">
+      we’re currently … miles apart.
+    </p>
+  </div>
+</section>
   </div> <!-- end #content -->
 
   <!-- Load auth.js -->
