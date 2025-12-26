@@ -496,3 +496,48 @@ body.login {
     top: -12px;
   }
 }
+
+/* ===== TULIP STRIP BORDER AT BOTTOM OF HERO CARD ===== */
+
+.tulip-strip {
+  margin-top: 18px;
+  height: 80px;  /* adjust taller/shorter if you like */
+  border-radius: 16px;
+  background-image: url("images/flowers/tulip_image.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  position: relative;
+  overflow: hidden;
+}
+
+/* cute hover tooltip */
+.tulip-strip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;  /* sit above the tulips */
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(250, 249, 246, 0.96);
+  color: #2F5D7C;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.14);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.tulip-strip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* optional: a little extra spacing on small screens */
+@media (max-width: 700px) {
+  .tulip-strip {
+    height: 70px;
+  }
+}
+
