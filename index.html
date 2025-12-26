@@ -36,81 +36,94 @@
       </div>
     </header>
   <section class="origin-card">
-  <p class="origin-label">the day our story started 🩵💛</p>
+  <p class="origin-label">where our journey started 🩵💛</p>
 
-  <div class="mini-calendar">
-    <div class="mini-cal-header">
-      <span class="mini-cal-month">May</span>
-      <span class="mini-cal-year">2025</span>
+  <div class="origin-body">
+    <!-- LEFT: mini calendar -->
+    <div class="origin-left">
+      <div class="mini-calendar">
+        <div class="mini-cal-header">
+          <span class="mini-cal-month">May</span>
+          <span class="mini-cal-year">2025</span>
+        </div>
+
+        <div class="mini-cal-grid">
+          <div class="dow">S</div>
+          <div class="dow">M</div>
+          <div class="dow">T</div>
+          <div class="dow">W</div>
+          <div class="dow">T</div>
+          <div class="dow">F</div>
+          <div class="dow">S</div>
+
+          <!-- Row 1 (May starts on Fri) -->
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day">1</div>
+          <div class="day">2</div>
+
+          <!-- Row 2 -->
+          <div class="day">3</div>
+          <div class="day">4</div>
+          <div class="day">5</div>
+          <div class="day">6</div>
+          <div class="day">7</div>
+          <div class="day">8</div>
+          <div class="day">9</div>
+
+          <!-- Row 3 -->
+          <div class="day">10</div>
+          <div class="day">11</div>
+          <div class="day">12</div>
+          <div class="day">13</div>
+          <div class="day">14</div>
+          <div class="day">15</div>
+          <div class="day">16</div>
+
+          <!-- Row 4 (❤️ May 17) -->
+          <div class="day heart-day">17</div>
+          <div class="day">18</div>
+          <div class="day">19</div>
+          <div class="day">20</div>
+          <div class="day">21</div>
+          <div class="day">22</div>
+          <div class="day">23</div>
+
+          <!-- Row 5 -->
+          <div class="day">24</div>
+          <div class="day">25</div>
+          <div class="day">26</div>
+          <div class="day">27</div>
+          <div class="day">28</div>
+          <div class="day">29</div>
+          <div class="day">30</div>
+
+          <!-- Row 6 -->
+          <div class="day">31</div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+        </div>
+      </div>
     </div>
 
-  <div class="mini-cal-grid">
-  <div class="dow">S</div>
-  <div class="dow">M</div>
-  <div class="dow">T</div>
-  <div class="dow">W</div>
-  <div class="dow">T</div>
-  <div class="dow">F</div>
-  <div class="dow">S</div>
-
-  <!-- Row 1 (Sun–Thu empty → May starts Fri) -->
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day">1</div>
-  <div class="day">2</div>
-
-  <!-- Row 2 -->
-  <div class="day">3</div>
-  <div class="day">4</div>
-  <div class="day">5</div>
-  <div class="day">6</div>
-  <div class="day">7</div>
-  <div class="day">8</div>
-  <div class="day">9</div>
-
-  <!-- Row 3 -->
-  <div class="day">10</div>
-  <div class="day">11</div>
-  <div class="day">12</div>
-  <div class="day">13</div>
-  <div class="day">14</div>
-  <div class="day">15</div>
-  <div class="day">16</div>
-
-  <!-- Row 4 (❤️ May 17) -->
-  <div class="day heart-day">17</div>
-  <div class="day">18</div>
-  <div class="day">19</div>
-  <div class="day">20</div>
-  <div class="day">21</div>
-  <div class="day">22</div>
-  <div class="day">23</div>
-
-  <!-- Row 5 -->
-  <div class="day">24</div>
-  <div class="day">25</div>
-  <div class="day">26</div>
-  <div class="day">27</div>
-  <div class="day">28</div>
-  <div class="day">29</div>
-  <div class="day">30</div>
-
-  <!-- Row 6 -->
-  <div class="day">31</div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  <div class="day empty"></div>
-  </div>  
-  
+    <!-- RIGHT: day counter -->
+    <div class="origin-right">
+      <p class="counter-label">days of us</p>
+      <p class="counter-number" id="dayCountNumber">0</p>
+      <p class="counter-caption" id="dayCountCaption">
+        and somehow, it still feels like the beginning 🩵
+      </p>
+    </div>
   </div>
+</section>
 
-  </section>
   </div> <!-- end #content -->
 
   <!-- Load auth.js -->
