@@ -261,12 +261,21 @@ body.login {
   color: #3A5F7D;
 }
 
-/* ===== ORIGIN / FIRST DAY CARD ===== */
+/* ===== ORIGIN SECTION: calendar + counter side by side ===== */
 
-.origin-card {
+.origin-section {
   margin: 24px auto 0;
-  width: 100%;
-  max-width: 520px;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* calendar card (left) */
+.origin-card {
+  flex: 1 1 320px;
+  max-width: 380px;
   background: #FAF9F6;
   border-radius: 22px;
   padding: 18px 18px 16px;
@@ -283,23 +292,11 @@ body.login {
   text-align: center;
 }
 
-/* side-by-side layout */
-.origin-body {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  justify-content: center;
-}
-
-/* LEFT calendar */
-.origin-left {
-  flex: 0 0 auto;
-}
-
+/* mini calendar stays roughly same size as before */
 .mini-calendar {
   margin: 0 auto;
   width: 100%;
-  max-width: 240px;
+  max-width: 260px;
   background: #FFF6D8;   /* soft pastel yellow */
   border-radius: 18px;
   padding: 10px 12px 12px;
@@ -351,7 +348,6 @@ body.login {
   background: transparent;
 }
 
-/* ❤️ highlight day */
 .heart-day {
   position: relative;
   font-weight: 800;
@@ -369,10 +365,18 @@ body.login {
   color: #f06292;
 }
 
-/* RIGHT day counter */
-.origin-right {
-  flex: 1;
-  text-align: left;
+/* counter card (right) */
+.counter-card {
+  flex: 1 1 260px;
+  max-width: 360px;
+  background: #FAF9F6;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(111, 174, 217, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .counter-label {
@@ -380,31 +384,37 @@ body.login {
   text-transform: uppercase;
   letter-spacing: 1.6px;
   color: #6b8296;
-  margin: 0 0 4px 0;
+  margin: 0 0 6px 0;
 }
 
 .counter-number {
   margin: 0;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 800;
   color: #2F5D7C;
 }
 
 .counter-caption {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   font-size: 13px;
   color: #3A5F7D;
 }
 
 /* stack on small screens */
-@media (max-width: 600px) {
-  .origin-body {
+@media (max-width: 700px) {
+  .origin-section {
     flex-direction: column;
     align-items: center;
   }
 
-  .origin-right {
+  .origin-card,
+  .counter-card {
+    max-width: 420px;
+  }
+
+  .counter-card {
     text-align: center;
+    align-items: center;
   }
 }
 
