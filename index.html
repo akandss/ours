@@ -154,6 +154,31 @@
   updateRibbon();
   window.addEventListener("scroll", updateRibbon);
 </script>
+<script>
+  // Count days since May 17, 2025
+  function updateDayCounter() {
+    const start = new Date("2025-05-17T00:00:00");
+    const today = new Date();
 
+    const startUTC = Date.UTC(start.getFullYear(), start.getMonth(), start.getDate());
+    const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+
+    const diffMs = todayUTC - startUTC;
+    const diffDays = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
+
+    const numEl = document.getElementById("dayCountNumber");
+    const captionEl = document.getElementById("dayCountCaption");
+
+    if (!numEl || !captionEl) return;
+
+    numEl.textContent = diffDays.toString();
+
+    // ⭐ Static caption (will not change over time)
+    captionEl.textContent =
+      "and somehow, it still feels like the beginning 🩵";
+  }
+
+  document.addEventListener("DOMContentLoaded", updateDayCounter);
+</script>
 </body>
 </html>
