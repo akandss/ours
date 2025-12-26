@@ -39,14 +39,31 @@ function distanceMiles(lat1, lon1, lat2, lon2) {
 }
 
 let map;
-let youMarker;
-let themMarker;
+let youMarker;     // your (football) marker
+let themMarker;    // his (Patriots) marker
+let routeLine;     // dotted line between you + him
+
+// custom marker icons
+const footballIcon = L.icon({
+  iconUrl: "../images/football-logo.png",
+  iconSize: [34, 34],
+  iconAnchor: [17, 34], // bottom center
+  popupAnchor: [0, -34]
+});
+
+const patriotsIcon = L.icon({
+  iconUrl: "../images/patriots-logo.jpeg",
+  iconSize: [36, 36],
+  iconAnchor: [18, 36],
+  popupAnchor: [0, -36]
+});
 
 function initMap() {
   const mapEl = document.getElementById("distanceMap");
   if (!mapEl) return;
 
-  map = L.map("distanceMap").setView([39.5, -98.35], 4); // world view
+  // center roughly on US to start
+  map = L.map("distanceMap").setView([39.5, -98.35], 4);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap"
@@ -84,20 +101,44 @@ function initDistanceUI() {
       return;
     }
 
-    // place / update markers
+    const youLatLng = [you.lat, you.lon];
+    const themLatLng = [them.lat, them.lon];
+
+    // place / update YOUR marker (football)
     if (!youMarker) {
-      youMarker = L.marker([you.lat, you.lon], { title: "You" }).addTo(map);
+      youMarker = L.marker(youLatLng, {
+        title: "You",
+        icon: footballIcon,
+        zIndexOffset: 1000
+      }).addTo(map);
     } else {
-      youMarker.setLatLng([you.lat, you.lon]);
+      youMarker.setLatLng(youLatLng);
     }
 
+    // place / update THEIR marker (Patriots)
     if (!themMarker) {
-      themMarker = L.marker([them.lat, them.lon], { title: "Them" }).addTo(map);
+      themMarker = L.marker(themLatLng, {
+        title: "Them",
+        icon: patriotsIcon,
+        zIndexOffset: 1000
+      }).addTo(map);
     } else {
-      themMarker.setLatLng([them.lat, them.lon]);
+      themMarker.setLatLng(themLatLng);
     }
 
-    // zoom to show both
+    // create / update dotted line between the two
+    if (!routeLine) {
+      routeLine = L.polyline([youLatLng, themLatLng], {
+        color: "#2F5D7C",
+        weight: 2.5,
+        opacity: 0.8,
+        dashArray: "6 6"   // dotted pattern
+      }).addTo(map);
+    } else {
+      routeLine.setLatLngs([youLatLng, themLatLng]);
+    }
+
+    // zoom to show both markers + line nicely
     const group = L.featureGroup([youMarker, themMarker]);
     map.fitBounds(group.getBounds(), { padding: [40, 40] });
 
@@ -107,7 +148,6 @@ function initDistanceUI() {
     );
 
     result.textContent = `right now, we're about ${miles.toLocaleString()} miles apart.`;
-
     caption.textContent = `you: ${you.display} · them: ${them.display}`;
   });
 }
@@ -116,4 +156,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMap();
   initDistanceUI();
 });
+
 
