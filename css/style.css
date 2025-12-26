@@ -429,11 +429,12 @@ body.login {
   max-width: 600px;
   margin: 24px auto 0;
   text-align: center;
-  padding: 18px 22px 26px;
+  padding: 18px 22px 0;   /* ⬅️ no bottom padding */
   background: #FAF9F6;
   border-radius: 20px;
   box-shadow: 0 10px 22px rgba(0,0,0,0.08);
   border: 1px solid rgba(111, 174, 217, 0.18);
+  overflow: hidden;       /* ⬅️ keeps tulips inside rounded corners */
 }
 
 .hero-tag {
@@ -478,15 +479,14 @@ body.login {
 /* ===== TULIP STRIP BORDER AT BOTTOM OF HERO CARD ===== */
 
 .tulip-strip {
-  margin-top: 16px;
-  height: 90px;                     /* tweak if you want taller/shorter */
-  border-radius: 14px;
+  margin-top: 18px;
+  height: 110px;  /* show more of the tulips */
   background-image: url("../images/tulip_image.jpg");
   background-size: cover;
   background-position: center bottom;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);  /* subtle depth */
+  border-radius: 0;       /* let the parent card handle rounding */
 }
 
 /* cute hover tooltip */
