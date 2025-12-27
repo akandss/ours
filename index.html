@@ -381,5 +381,64 @@
 
   document.addEventListener("DOMContentLoaded", updateDayCounter);
 </script>
+
+<script>
+  const overlay = document.getElementById("letterOverlay");
+  const backdrop = document.getElementById("letterBackdrop");
+  const open2025 = document.getElementById("open2025");
+
+  const envelopeView = document.getElementById("envelopeView");
+  const letterView = document.getElementById("letterView");
+  const envelope = document.getElementById("envelope");
+
+  const close1 = document.getElementById("closeLetter");
+  const close2 = document.getElementById("closeLetter2");
+
+  const finishedBtn = document.getElementById("finishedBtn");
+
+  function openOverlay() {
+    overlay.classList.add("show");
+    overlay.setAttribute("aria-hidden", "false");
+    envelopeView.classList.remove("hidden");
+    letterView.classList.add("hidden");
+    envelope.classList.remove("opening");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove("show");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function openLetter() {
+    envelope.classList.add("opening");
+    // after the flap animation, switch to letter
+    setTimeout(() => {
+      envelopeView.classList.add("hidden");
+      letterView.classList.remove("hidden");
+    }, 430);
+  }
+
+  open2025.addEventListener("click", (e) => {
+    e.preventDefault();
+    openOverlay();
+  });
+
+  envelope.addEventListener("click", openLetter);
+
+  close1.addEventListener("click", closeOverlay);
+  close2.addEventListener("click", closeOverlay);
+  backdrop.addEventListener("click", closeOverlay);
+
+  finishedBtn.addEventListener("click", () => {
+    window.location.href = "2025.html";
+  });
+
+  // ESC to close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("show")) closeOverlay();
+  });
+</script>
 </body>
 </html>
