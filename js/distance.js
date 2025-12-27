@@ -57,10 +57,29 @@ const patriotsIcon = L.icon({
   iconAnchor: [18, 36],
   popupAnchor: [0, -36]
 });
+function cityState(displayName) {
+  if (!displayName) return "";
 
-function initMap() {
-  const mapEl = document.getElementById("distanceMap");
-  if (!mapEl) return;
+  const parts = displayName.split(",").map(p => p.trim());
+
+  // Typical formats:
+  // "Boston, Suffolk County, Massachusetts, United States"
+  // "San Francisco, California, United States"
+  // "Austin, Travis County, Texas, United States"
+
+  const city = parts[0];
+  let state = "";
+
+  for (let i = 1; i < parts.length; i++) {
+    if (parts[i].length <= 20 && !parts[i].includes("County")) {
+      state = parts[i];
+      break;
+    }
+  }
+
+  return state ? `${city}, ${state}` : city;
+}
+
 
   // center roughly on US to start
   map = L.map("distanceMap").setView([39.5, -98.35], 4);
@@ -104,27 +123,47 @@ function initDistanceUI() {
     const youLatLng = [you.lat, you.lon];
     const themLatLng = [them.lat, them.lon];
 
-    // place / update YOUR marker (football)
-    if (!youMarker) {
-      youMarker = L.marker(youLatLng, {
-        title: "You",
-        icon: footballIcon,
-        zIndexOffset: 1000
-      }).addTo(map);
-    } else {
-      youMarker.setLatLng(youLatLng);
-    }
+    const youLabel = cityState(you.display);
+    const themLabel = cityState(them.display);
 
-    // place / update THEIR marker (Patriots)
-    if (!themMarker) {
-      themMarker = L.marker(themLatLng, {
-        title: "Them",
-        icon: patriotsIcon,
-        zIndexOffset: 1000
-      }).addTo(map);
-    } else {
-      themMarker.setLatLng(themLatLng);
-    }
+// place / update YOUR marker (football)
+if (!youMarker) {
+  youMarker = L.marker(youLatLng, {
+    title: "You",
+    icon: footballIcon,
+    zIndexOffset: 1000
+  }).addTo(map);
+
+  youMarker.bindTooltip(youLabel, {
+    direction: "top",
+    offset: [0, -10],
+    opacity: 0.95,
+    sticky: true
+  });
+} else {
+  youMarker.setLatLng(youLatLng);
+  youMarker.setTooltipContent(youLabel);
+}
+
+// place / update THEIR marker (Patriots)
+if (!themMarker) {
+  themMarker = L.marker(themLatLng, {
+    title: "Them",
+    icon: patriotsIcon,
+    zIndexOffset: 1000
+  }).addTo(map);
+
+  themMarker.bindTooltip(themLabel, {
+    direction: "top",
+    offset: [0, -10],
+    opacity: 0.95,
+    sticky: true
+  });
+} else {
+  themMarker.setLatLng(themLatLng);
+  themMarker.setTooltipContent(themLabel);
+}
+
 
     // create / update dotted line between the two
     if (!routeLine) {
