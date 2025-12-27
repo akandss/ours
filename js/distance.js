@@ -5,9 +5,7 @@ async function geocode(query) {
   )}&format=json&limit=1`;
 
   const res = await fetch(url, {
-    headers: {
-      "User-Agent": "Personal long-distance site (learning project)"
-    }
+    headers: { "User-Agent": "Personal long-distance site (learning project)" }
   });
 
   const data = await res.json();
@@ -38,50 +36,35 @@ function distanceMiles(lat1, lon1, lat2, lon2) {
   return R * c;
 }
 
-let map;
-let youMarker;     // your (football) marker
-let themMarker;    // his (Patriots) marker
-let routeLine;     // dotted line between you + him
-
-// custom marker icons
-const footballIcon = L.icon({
-  iconUrl: "images/football_logo.png",
-  iconSize: [32, 32],
-  iconAnchor: [17, 34], // bottom center
-  popupAnchor: [0, -34]
-});
-
-const patriotsIcon = L.icon({
-  iconUrl: "images/patriots_logo.jpeg",
-  iconSize: [32, 32],
-  iconAnchor: [18, 36],
-  popupAnchor: [0, -36]
-});
+// Turn "Boston, Suffolk County, Massachusetts, United States" into "Boston, Massachusetts"
 function cityState(displayName) {
   if (!displayName) return "";
 
-  const parts = displayName.split(",").map(p => p.trim());
-
-  // Typical formats:
-  // "Boston, Suffolk County, Massachusetts, United States"
-  // "San Francisco, California, United States"
-  // "Austin, Travis County, Texas, United States"
-
-  const city = parts[0];
+  const parts = displayName.split(",").map((p) => p.trim());
+  const city = parts[0] || "";
   let state = "";
 
   for (let i = 1; i < parts.length; i++) {
-    if (parts[i].length <= 20 && !parts[i].includes("County")) {
-      state = parts[i];
-      break;
-    }
+    const p = parts[i];
+    if (!p) continue;
+    if (p.includes("County")) continue;
+    state = p;
+    break;
   }
 
   return state ? `${city}, ${state}` : city;
 }
 
+let map;
+let youMarker;
+let themMarker;
+let routeLine;
 
-  // center roughly on US to start
+function initMap() {
+  const mapEl = document.getElementById("distanceMap");
+  if (!mapEl) return;
+
+  // Center roughly on US to start
   map = L.map("distanceMap").setView([39.5, -98.35], 4);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -95,6 +78,19 @@ function initDistanceUI() {
   const caption = document.getElementById("mapCaption");
 
   if (!form || !result || !caption) return;
+
+  // Custom marker icons (paths are relative to index.html)
+  const footballIcon = L.icon({
+    iconUrl: "images/football_logo.png",
+    iconSize: [32, 32],
+    iconAnchor: [16, 32] // bottom center
+  });
+
+  const patriotsIcon = L.icon({
+    iconUrl: "images/patriots_logo.jpeg",
+    iconSize: [32, 32],
+    iconAnchor: [16, 32]
+  });
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -126,68 +122,64 @@ function initDistanceUI() {
     const youLabel = cityState(you.display);
     const themLabel = cityState(them.display);
 
-// place / update YOUR marker (football)
-if (!youMarker) {
-  youMarker = L.marker(youLatLng, {
-    title: "You",
-    icon: footballIcon,
-    zIndexOffset: 1000
-  }).addTo(map);
+    // YOUR marker (football)
+    if (!youMarker) {
+      youMarker = L.marker(youLatLng, {
+        icon: footballIcon,
+        zIndexOffset: 1000
+      }).addTo(map);
 
-  youMarker.bindTooltip(youLabel, {
-    direction: "top",
-    offset: [0, -10],
-    opacity: 0.95,
-    sticky: true
-  });
-} else {
-  youMarker.setLatLng(youLatLng);
-  youMarker.setTooltipContent(youLabel);
-}
+      youMarker.bindTooltip(youLabel, {
+        direction: "top",
+        offset: [0, -10],
+        opacity: 0.95,
+        sticky: true
+      });
+    } else {
+      youMarker.setLatLng(youLatLng);
+      youMarker.setTooltipContent(youLabel);
+    }
 
-// place / update THEIR marker (Patriots)
-if (!themMarker) {
-  themMarker = L.marker(themLatLng, {
-    title: "Them",
-    icon: patriotsIcon,
-    zIndexOffset: 1000
-  }).addTo(map);
+    // THEIR marker (Patriots)
+    if (!themMarker) {
+      themMarker = L.marker(themLatLng, {
+        icon: patriotsIcon,
+        zIndexOffset: 1000
+      }).addTo(map);
 
-  themMarker.bindTooltip(themLabel, {
-    direction: "top",
-    offset: [0, -10],
-    opacity: 0.95,
-    sticky: true
-  });
-} else {
-  themMarker.setLatLng(themLatLng);
-  themMarker.setTooltipContent(themLabel);
-}
+      themMarker.bindTooltip(themLabel, {
+        direction: "top",
+        offset: [0, -10],
+        opacity: 0.95,
+        sticky: true
+      });
+    } else {
+      themMarker.setLatLng(themLatLng);
+      themMarker.setTooltipContent(themLabel);
+    }
 
-
-    // create / update dotted line between the two
+    // Dotted line between you two
     if (!routeLine) {
       routeLine = L.polyline([youLatLng, themLatLng], {
         color: "#2F5D7C",
         weight: 2.5,
         opacity: 0.8,
-        dashArray: "6 6"   // dotted pattern
+        dashArray: "6 6"
       }).addTo(map);
     } else {
       routeLine.setLatLngs([youLatLng, themLatLng]);
     }
 
-    // zoom to show both markers + line nicely
+    // Fit map to show both
     const group = L.featureGroup([youMarker, themMarker]);
     map.fitBounds(group.getBounds(), { padding: [40, 40] });
 
-    // calculate miles
-    const miles = Math.round(
-      distanceMiles(you.lat, you.lon, them.lat, them.lon)
-    );
-
+    // Miles apart
+    const miles = Math.round(distanceMiles(you.lat, you.lon, them.lat, them.lon));
     result.textContent = `right now, we're about ${miles.toLocaleString()} miles apart.`;
-    caption.textContent = `you: ${you.display} · them: ${them.display}`;
+
+    // Caption (City, State)
+    caption.textContent = `you: ${youLabel} · them: ${themLabel}`;
   });
 }
 
