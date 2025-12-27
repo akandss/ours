@@ -806,3 +806,7 @@ body.login {
     margin: 0 auto;
   }
 }
+
+.music-section {
+  flex-direction: row-reverse;
+}
