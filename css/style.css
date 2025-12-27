@@ -874,3 +874,39 @@ body.login {
   opacity: 0.9;
 }
 
+/* Hover tooltip for SAKS badge */
+
+.saks-badge {
+  position: relative;
+  cursor: default;
+}
+
+.saks-badge::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 10px);
+  white-space: nowrap;
+
+  background: rgba(207, 233, 246, 0.95);
+  border: 1px solid rgba(111, 174, 217, 0.35);
+  color: #2F5D7C;
+
+  padding: 8px 12px;
+  border-radius: 12px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.saks-badge:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 4px);
+}
