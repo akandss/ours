@@ -658,3 +658,151 @@ body.login {
 .distance-section {
   flex-direction: row-reverse;
 }
+
+/* ===== MUSIC SECTION ===== */
+
+.music-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 60px auto 0;
+  padding: 0 32px;
+  box-sizing: border-box;
+
+  display: flex;
+  gap: 44px;
+  align-items: center;
+}
+
+.music-card {
+  background: #FAF9F6;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(111, 174, 217, 0.25);
+}
+
+.music-left { flex: 0.95 1 0; }
+.music-right { flex: 1.15 1 0; }
+
+/* Polaroid */
+.polaroid {
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.10);
+  border: 1px solid rgba(0,0,0,0.08);
+  transform: rotate(-0.5deg);
+  position: relative;
+}
+
+.blend-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.polaroid-caption {
+  margin: 10px 2px 0;
+  font-size: 13px;
+  color: #2F5D7C;
+  opacity: 0.9;
+}
+
+/* A) Washi tape effect */
+.taped::before,
+.taped::after {
+  content: "";
+  position: absolute;
+  width: 92px;
+  height: 28px;
+  background: rgba(207, 233, 246, 0.85);
+  border: 1px solid rgba(47, 93, 124, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.10);
+  filter: saturate(1.1);
+}
+
+.taped::before {
+  top: -12px;
+  left: 18px;
+  transform: rotate(-6deg);
+}
+
+.taped::after {
+  top: -12px;
+  right: 18px;
+  transform: rotate(7deg);
+}
+
+/* B) “Now Playing” pill */
+.now-playing {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(207, 233, 246, 0.65);
+  border: 1px solid rgba(111, 174, 217, 0.35);
+  color: #2F5D7C;
+}
+
+.np-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #6FAED9;
+  box-shadow: 0 0 0 5px rgba(111, 174, 217, 0.18);
+}
+
+.np-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.spotify-embed {
+  margin-top: 10px;
+}
+
+/* C) Top tracks embed list */
+.mini-title {
+  margin: 16px 0 10px;
+  font-size: 13px;
+  color: #6b8296;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.track-embed {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.track-label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: #2F5D7C;
+  opacity: 0.85;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  .music-section {
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 22px;
+  }
+
+  .music-card {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
