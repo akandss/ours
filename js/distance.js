@@ -46,14 +46,14 @@ let routeLine;     // dotted line between you + him
 // custom marker icons
 const footballIcon = L.icon({
   iconUrl: "images/football_logo.png",
-  iconSize: [34, 34],
+  iconSize: [32, 32],
   iconAnchor: [17, 34], // bottom center
   popupAnchor: [0, -34]
 });
 
 const patriotsIcon = L.icon({
   iconUrl: "images/patriots_logo.jpeg",
-  iconSize: [36, 36],
+  iconSize: [32, 32],
   iconAnchor: [18, 36],
   popupAnchor: [0, -36]
 });
