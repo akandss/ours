@@ -281,7 +281,44 @@
 
   </div>
 </section>
-    
+  <!-- 2025 Envelope + Letter Overlay -->
+<div id="letterOverlay" class="overlay" aria-hidden="true">
+  <div class="overlay-backdrop" id="letterBackdrop"></div>
+
+  <div class="overlay-card" role="dialog" aria-modal="true" aria-label="Letter for Samartha">
+    <!-- Envelope view -->
+    <div id="envelopeView" class="envelope-view">
+      <div class="envelope" id="envelope">
+        <div class="env-top"></div>
+        <div class="env-body">
+          <p class="env-to">to: <span>samartha</span></p>
+          <p class="env-sub">click to open</p>
+        </div>
+      </div>
+
+      <button class="close-x" id="closeLetter" aria-label="Close">×</button>
+    </div>
+
+    <!-- Letter view -->
+    <div id="letterView" class="letter-view hidden">
+      <button class="close-x" id="closeLetter2" aria-label="Close">×</button>
+
+      <div class="letter-paper">
+        <h2 class="letter-title">to: Samartha 🩵</h2>
+
+        <div class="letter-text" contenteditable="true">
+          <p>write your letter here…</p>
+          <p>(you can paste it in later too)</p>
+        </div>
+
+        <div class="letter-footer">
+          <button id="finishedBtn" class="primary-btn">Finished</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
   </div> <!-- end #content -->
 
   <!-- Leaflet JS (map library) -->
