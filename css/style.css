@@ -810,3 +810,67 @@ body.login {
 .music-section {
   flex-direction: row-reverse;
 }
+
+/* ===== BOUJEE INSIDE JOKE SECTION ===== */
+
+.boujee-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 60px auto 0;
+  padding: 0 28px;
+  box-sizing: border-box;
+}
+
+.boujee-inner {
+  background: #FAF9F6;
+  border-radius: 22px;
+  padding: 26px 26px 22px;
+  border: 1px solid rgba(111, 174, 217, 0.28);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.boujee-pretext {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #6b8296;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Saks-style initials badge */
+
+.saks-badge {
+  display: inline-flex;
+  gap: 14px;
+  padding: 14px 20px;
+  margin: 4px 0 6px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+  letter-spacing: 4px;
+}
+
+.saks-badge span {
+  font-size: 22px;
+  font-weight: 800;
+  color: #2F5D7C;
+}
+
+/* cute sub-text */
+
+.boujee-subtext {
+  margin: 10px 0 4px;
+  font-size: 14px;
+  color: #2F5D7C;
+  font-weight: 700;
+}
+
+.boujee-note {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #6b8296;
+  opacity: 0.9;
+}
+
