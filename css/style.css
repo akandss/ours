@@ -910,3 +910,159 @@ body.login {
   opacity: 1;
   transform: translate(-50%, 4px);
 }
+
+/* ===== Envelope / Letter Overlay ===== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 40, 55, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.overlay-card {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 6vh auto;
+  padding: 0 16px;
+}
+
+.close-x {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(250, 249, 246, 0.98);
+  font-size: 22px;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.hidden { display: none; }
+
+/* Envelope */
+
+.envelope-view {
+  position: relative;
+}
+
+.envelope {
+  cursor: pointer;
+  user-select: none;
+  background: #FAF9F6;
+  border-radius: 22px;
+  border: 1px solid rgba(111, 174, 217, 0.25);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+  overflow: hidden;
+
+  height: 360px;
+  display: grid;
+  grid-template-rows: 45% 55%;
+}
+
+.env-top {
+  background: linear-gradient(135deg, rgba(111,174,217,0.55), rgba(207,233,246,0.85));
+  clip-path: polygon(0 0, 100% 0, 50% 82%);
+}
+
+.env-body {
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.env-to {
+  margin: 0;
+  font-size: 16px;
+  color: #2F5D7C;
+  font-weight: 700;
+}
+
+.env-to span {
+  text-transform: lowercase;
+  letter-spacing: 0.2px;
+}
+
+.env-sub {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #6b8296;
+  font-weight: 600;
+}
+
+/* “opening” motion */
+.envelope.opening .env-top {
+  animation: flapOpen 420ms ease forwards;
+  transform-origin: top center;
+}
+@keyframes flapOpen {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(70deg); }
+}
+
+/* Letter paper */
+.letter-view {
+  position: relative;
+}
+
+.letter-paper {
+  background: #FFFBF2; /* warm paper */
+  border-radius: 22px;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  padding: 26px 22px 18px;
+}
+
+/* handwriting-ish but not cursive: add a webfont */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.letter-title {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #2F5D7C;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.letter-text {
+  font-family: "Patrick Hand", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #1f3346;
+  text-align: left;
+}
+
+.letter-text p { margin: 10px 0; }
+
+.letter-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* Optional: make the primary button match your site if not already */
+.primary-btn {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #6FAED9;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.primary-btn:hover { opacity: 0.95; }
+
