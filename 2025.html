@@ -209,6 +209,16 @@
       document.getElementById("content").style.display = "block";
     }
   </script>
+  <script>
+  // make memory cards flip on click
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".memory-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        card.classList.toggle("flipped");
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
