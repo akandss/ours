@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our 2025 Memories 💙</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Shared site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Early redirect (prevents flash of content) -->
+  <script>
+    if (sessionStorage.getItem("access") !== "granted") {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- hide content until access confirmed -->
+  <div id="content" style="display:none;">
+
+    <!-- ===== PAGE HEADER ===== -->
+    <header class="memories-header">
+      <h1>our 2025 memories</h1>
+      <p class="memories-sub">
+        the little moments, the everyday days, the quiet nights in seattle 💙
+      </p>
+
+      <a href="index.html" class="back-link">← back to home</a>
+    </header>
+
+
+    <!-- ===== SUPERLATIVES SECTION (we'll fill this next) ===== -->
+    <section class="superlatives">
+      <h2>2025 — our little year in numbers</h2>
+      <p class="superlatives-sub">
+        a few things only we’d ever think to keep track of :)
+      </p>
+
+      <div class="superlative-grid">
+        <!-- we'll add the cards here next -->
+      </div>
+    </section>
+
+
+    <!-- ===== MONTHLY TIMELINE SECTION (placeholder for later) ===== -->
+    <section class="timeline-section">
+      <h2 class="timeline-title">our story this year — month by month</h2>
+
+      <p class="timeline-sub">
+        from seattle nights to quiet everyday moments — coming soon ✨
+      </p>
+
+      <!-- we will add:
+           - monthly video reel slots
+           - flip-card memory grids
+           here next -->
+    </section>
+
+  </div>
+
+
+  <!-- ===== AUTH CHECK + SHOW CONTENT ===== -->
+  <script src="js/auth.js"></script>
+  <script>
+    if (sessionStorage.getItem("access") === "granted") {
+      document.getElementById("content").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
