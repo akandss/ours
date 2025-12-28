@@ -1168,3 +1168,69 @@ body.login {
   font-size: 0.9rem;
 }
 
+/* ===== SUPERLATIVES SECTION (2025) ===== */
+
+.superlatives {
+  max-width: 1100px;
+  margin: 40px auto 10px;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.superlatives h2 {
+  color: #2F5D7C;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.superlatives-sub {
+  margin-top: 6px;
+  color: #4b6f88;
+  font-size: 0.95rem;
+}
+
+.superlative-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.super-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+  border: 1px solid rgba(150,180,200,0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.super-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+}
+
+.super-icon {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.super-title {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  color: #5a7890;
+  text-transform: lowercase;
+}
+
+.super-value {
+  margin-top: 4px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2f5d7c;
+}
+
+.super-note {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #6d8aa3;
+}
