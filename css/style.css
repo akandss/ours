@@ -1113,3 +1113,58 @@ body.login {
   opacity: 0;
 }
 
+
+/* ===== 2025 PAGE HEADER ===== */
+
+.memories-header {
+  max-width: 950px;
+  margin: 40px auto 10px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.memories-header h1 {
+  color: #2F5D7C;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.memories-sub {
+  margin-top: 6px;
+  color: #5f7c94;
+  font-size: 0.95rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #6FAED9;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+
+/* ===== TIMELINE PLACEHOLDER ===== */
+
+.timeline-section {
+  max-width: 1100px;
+  margin: 40px auto 70px;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.timeline-title {
+  color: #2F5D7C;
+  font-weight: 700;
+}
+
+.timeline-sub {
+  margin-top: 6px;
+  color: #6b8296;
+  font-size: 0.9rem;
+}
+
