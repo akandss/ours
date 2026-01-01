@@ -1025,6 +1025,11 @@ body.login {
   border: 1px solid rgba(0,0,0,0.10);
   box-shadow: 0 16px 40px rgba(0,0,0,0.18);
   padding: 26px 22px 18px;
+
+  /* NEW: make it a column so title + text + footer stack nicely */
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;   /* keep the whole letter inside the viewport */
 }
 
 /* handwriting-ish but not cursive: add a webfont */
@@ -1040,11 +1045,17 @@ body.login {
 
 .letter-text {
   font-family: "Patrick Hand", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
   color: #1f3346;
   text-align: left;
   overflow-y:auto;
+
+  /* NEW: flex + scroll */
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: none;
+  padding-right: 8px;     /* room for scrollbar */
 }
 
 .letter-text p { margin: 10px 0; }
