@@ -1421,3 +1421,10 @@ body.login {
   }
 }
 
+.yt-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;      /* keeps it elegant */
+  margin: 0 auto;        /* centers it in the column */
+  padding-top: 140%;     /* tall portrait ratio */
+}
