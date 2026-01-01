@@ -1360,7 +1360,7 @@ body.login {
 .memory-inner {
   position: relative;
   width: 100%;
-  min-height: 160px;
+  min-height: 340px;
   border-radius: 16px;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
@@ -1404,6 +1404,7 @@ body.login {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow-y: auto;
 }
 
 .memory-date {
@@ -1416,8 +1417,8 @@ body.login {
 
 .memory-text {
   font-family: "Patrick Hand", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 1.02rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.45;
   color: #1f3346;
 }
 
@@ -1433,7 +1434,7 @@ body.login {
   }
 
   .memory-inner {
-    min-height: 230px;
+    min-height: 280px;
   }
 }
 
