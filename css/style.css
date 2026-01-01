@@ -1438,3 +1438,20 @@ body.login {
   }
 }
 
+/* slightly taller cards for portrait-oriented photos */
+.memory-card.portrait .memory-inner {
+  min-height: 380px;
+}
+
+.memory-card.portrait .memory-front img {
+  height: 260px;      /* show more of the photo */
+}
+
+/* slightly shorter cards for landscape (if you want) */
+.memory-card.landscape .memory-inner {
+  min-height: 320px;
+}
+
+.memory-card.landscape .memory-front img {
+  height: 200px;
+}
