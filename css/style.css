@@ -1444,7 +1444,7 @@ body.login {
 }
 
 .memory-card.portrait .memory-front img {
-  height: 260px;      /* show more of the photo */
+  height: 280px;      /* show more of the photo */
 }
 
 /* slightly shorter cards for landscape (if you want) */
