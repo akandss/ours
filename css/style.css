@@ -1044,6 +1044,7 @@ body.login {
   line-height: 1.5;
   color: #1f3346;
   text-align: left;
+  overflow-y:auto;
 }
 
 .letter-text p { margin: 10px 0; }
